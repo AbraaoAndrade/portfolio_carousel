@@ -4,15 +4,15 @@ from typing import Optional
 import streamlit as st
 import streamlit.components.v1 as components
 
-# Tell streamlit that there is a component called projects_carousel,
+# Tell streamlit that there is a component called portfolio_carousel,
 # and that the code to display that component is in the "frontend" folder
 frontend_dir = (Path(__file__).parent / "frontend").absolute()
 _component_func = components.declare_component(
-	"projects_carousel", path=str(frontend_dir)
+	"portfolio_carousel", path=str(frontend_dir)
 )
 
 # Create the python function that will be called
-def projects_carousel(
+def portfolio_carousel(
     title: str,
     subtitle: str,
     cards: str,
@@ -39,7 +39,7 @@ def main():
              ["images/B2B.jpg", "Prospecção de Clientes B2B", "Google API | Python | Streamlit", "Aplicação para prospectar potenciais clientes B2B no Rio Grande do Norte utilizando uma API da Google chamada Places."],
              ["images/tracking.jpg", "Bird Tracking", "Data Processing | Data Visualization", "Aplicação para processar dados de coordenadas e gerar visualizações em mapa de calor."]]
             
-    value = projects_carousel(title=title,
+    value = portfolio_carousel(title=title,
                                subtitle=subtitle,
                                cards=cards)
     st.write(value)
