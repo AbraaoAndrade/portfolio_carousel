@@ -71,5 +71,5 @@ function onRender(event) {
 
 Streamlit.events.addEventListener(Streamlit.RENDER_EVENT, onRender)
 Streamlit.setComponentReady()
-Streamlit.setFrameHeight(700)
+Streamlit.setFrameHeight(560)
 Streamlit.setFrameWidth(704)
