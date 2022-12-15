@@ -60,6 +60,7 @@ function onRender(event) {
       addCards2HTML(cards[i][0], cards[i][1], cards[i][2], cards[i][3], cards[i][1].toLowerCase().replaceAll(" ", "_"));
     }
 
+    // alert(document.querySelectorAll('.card').length)
     first_run = false;
   }
 
