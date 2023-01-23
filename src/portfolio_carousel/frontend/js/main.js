@@ -16,7 +16,7 @@ function addHead2HTML(title, subtitle) {
   )
 }
 
-function addCards2HTML(card_image_path, card_title, card_keys, card_description, card_id) {
+function addCards2HTML(card_image_path, card_title, card_keys, card_description, card_id, card_link) {
   var html_text = `
   <div class="card swiper-slide">
     <div class="image">
@@ -27,15 +27,17 @@ function addCards2HTML(card_image_path, card_title, card_keys, card_description,
         <h2 class="title">{card_title}</h2>
         <p class="keys">{card_keys}</p>
         <p class="description" id="description">{card_description}</p>
-        <button class="button" id="{card_id}" onclick="handleClick(this)">👁 View More</button>
+        <button class="button" id="{card_id}" onclick=" window.open('{card_link}','_blank')">👁 View More</button>
     </div>
   </div>
   `;
+  // "handleClick(this)"
   html_text = html_text.replace("{card_image_path}", card_image_path);
   html_text = html_text.replace("{card_title}", card_title);
   html_text = html_text.replace("{card_keys}", card_keys);
   html_text = html_text.replace("{card_description}", card_description);
   html_text = html_text.replace("{card_id}", card_id);
+  html_text = html_text.replace("{card_link}", card_link);
 
   document.querySelector('.card-wrapper').insertAdjacentHTML(
     'beforeend',
@@ -57,7 +59,7 @@ function onRender(event) {
     addHead2HTML(title, subtitle);
 
     for (var i=0 ; i < cards.length ; i++){
-      addCards2HTML(cards[i][0], cards[i][1], cards[i][2], cards[i][3], cards[i][1].toLowerCase().replaceAll(" ", "_"));
+      addCards2HTML(cards[i][0], cards[i][1], cards[i][2], cards[i][4], cards[i][1].toLowerCase().replaceAll(" ", "_"), cards[i][3]);
     }
 
     // alert(document.querySelectorAll('.card').length)
